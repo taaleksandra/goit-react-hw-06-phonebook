@@ -7,10 +7,12 @@ import css from '../ContactList/ContactList.module.css';
 
 import { deleteContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
+import { getFilter } from 'redux/selectors';
 
-export const ContactList = ({ filter }) => {
+export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
 
   const handleDelete = evt => {
     const deletingContactId = evt.target.id;

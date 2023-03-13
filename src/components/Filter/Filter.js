@@ -1,13 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 
 import css from '../Filter/Filter.module.css';
 
+import { filterContact } from 'redux/filterSlice';
+
 export const Filter = ({ onFind }) => {
+  const dispatch = useDispatch();
+
   const handleChange = evt => {
-    let searchingName = evt.target.value;
-    onFind(searchingName);
+    const searchingName = evt.target.value;
+    dispatch(filterContact(searchingName));
   };
 
   return (
@@ -23,8 +27,4 @@ export const Filter = ({ onFind }) => {
       />
     </div>
   );
-};
-
-Filter.propTypes = {
-  onFind: PropTypes.func,
 };
