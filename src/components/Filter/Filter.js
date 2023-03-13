@@ -6,7 +6,7 @@ import css from '../Filter/Filter.module.css';
 
 import { filterContact } from 'redux/filterSlice';
 
-export const Filter = ({ onFind }) => {
+export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleChange = evt => {

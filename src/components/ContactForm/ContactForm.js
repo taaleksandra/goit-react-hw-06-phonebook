@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-// import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
 
 import css from '../ContactForm/ContactForm.module.css';
 
@@ -59,7 +57,3 @@ export const ContactForm = () => {
     </form>
   );
 };
-
-// ContactForm.propTypes = {
-//   onAdd: PropTypes.func,
-// };

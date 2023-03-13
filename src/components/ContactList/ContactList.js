@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
-
 import css from '../ContactList/ContactList.module.css';
 
 import { deleteContact } from 'redux/contactsSlice';
@@ -48,10 +46,4 @@ export const ContactList = () => {
         ))}
     </ul>
   );
-};
-
-ContactList.propTypes = {
-  onDeleteContact: PropTypes.func,
-  contacts: PropTypes.array,
-  filter: PropTypes.string,
 };
