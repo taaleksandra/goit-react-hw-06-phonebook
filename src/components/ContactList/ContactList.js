@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import css from '../ContactList/ContactList.module.css';
 
-export const ContactList = ({ onDeleteContact, contacts, filter }) => {
+import { deleteContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
+
+export const ContactList = ({ filter }) => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+
   const handleDelete = evt => {
     const deletingContactId = evt.target.id;
-    onDeleteContact(deletingContactId);
+
+    dispatch(deleteContact(deletingContactId.id));
   };
+
+  useEffect(() => {
+    const contactsStringified = JSON.stringify(contacts);
+    window.localStorage.setItem('contacts', contactsStringified);
+  }, [contacts]);
 
   return (
     <ul>
