@@ -14,8 +14,7 @@ export const ContactList = () => {
 
   const handleDelete = evt => {
     const deletingContactId = evt.target.id;
-
-    dispatch(deleteContact(deletingContactId.id));
+    dispatch(deleteContact(deletingContactId));
   };
 
   useEffect(() => {
